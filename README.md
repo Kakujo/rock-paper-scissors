@@ -1,0 +1,1 @@
+Making a rock-paper-scissors game for The Odin Project. Let's goooooo
