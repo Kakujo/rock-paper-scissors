@@ -41,7 +41,11 @@ function game() {
     let playCount = 0;
     let victor = "";
     while (playerScore < 5 && computerScore < 5) {
-        const playerSelection = prompt("Okay, round #" + (playCount + 1) + "! Do you choose Paper, Scissors or Rock?").toLowerCase();
+        const rawPlayerSelection = prompt("Okay, round #" + (playCount + 1) + "! Do you choose Paper, Scissors or Rock?");
+        let playerSelection;
+        if (rawPlayerSelection !== null) {
+            playerSelection = rawPlayerSelection.toLowerCase();
+        }
         console.log("Player entered: "+ playerSelection);
         const computerSelection = getComputerChoice();
         console.log("Computer entered: " + computerSelection);
@@ -95,6 +99,9 @@ function game() {
         } else {
             alert("That's not one of the selections! Try again.");
         }
+        console.log("CURRENT SCORE: ");
+        console.log("Player Score: " + playerScore);
+        console.log("Computer Score: " + computerScore);
     }
     if (playerScore > computerScore) {
         victor = "Player";
