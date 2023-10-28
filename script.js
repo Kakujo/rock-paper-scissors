@@ -1,6 +1,5 @@
-console.log("Hello, World!");
-
 function getComputerChoice() {
+    //random number between 1 and 3
     const randomNumber = Math.floor(Math.random() * 3) + 1;
     console.log("randomNumber is: " + randomNumber);
     if (randomNumber === 3) {
@@ -31,6 +30,7 @@ function playRound(playerSelection, computerSelection) {
         if (computerSelection === "paper") return 8;
         if (computerSelection === "scissors") return 9;
     }
+    //catches invalid input
     return false;
 }
 
@@ -43,6 +43,7 @@ function game() {
     while (playerScore < 5 && computerScore < 5) {
         const rawPlayerSelection = prompt("Okay, round #" + (playCount + 1) + "! Do you choose Paper, Scissors or Rock?");
         let playerSelection;
+        //check for null
         if (rawPlayerSelection !== null) {
             playerSelection = rawPlayerSelection.toLowerCase();
         }
