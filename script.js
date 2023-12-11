@@ -3,6 +3,20 @@ let computerScore = 0;
 let playCount = 0;
 let victor = "";
 
+let rockButton = document.querySelector("#rock");
+let paperButton = document.querySelector("#paper");
+let scissorsButton = document.querySelector("#scissors");
+
+rockButton.addEventListener("click", () => {
+    startRound("rock")
+});
+paperButton.addEventListener("click", () => {
+    startRound("paper")
+});
+scissorsButton.addEventListener("click", () => {
+    startRound("scissors")
+});
+
 function getComputerChoice() {
     //random number between 1 and 3
     const randomNumber = Math.floor(Math.random() * 3) + 1;
@@ -18,6 +32,8 @@ function getComputerChoice() {
 console.log("Testing... Computer's choice is: " + getComputerChoice());
 
 function checkHands(playerSelection, computerSelection) {
+    console.log("The value of 'playerSelection' is " + playerSelection)
+    console.log("The value of 'computerSelection' is " + computerSelection)
     if (playerSelection === "rock") {
 
         if (computerSelection === "rock") return 1;
@@ -39,7 +55,7 @@ function checkHands(playerSelection, computerSelection) {
     return false;
 }
 
-function startRound(playerSelection, checkWinner) {
+function startRound(playerSelection) {
     let computerSelection = getComputerChoice();
     const roundResult = checkHands(playerSelection, computerSelection);
 
@@ -94,6 +110,8 @@ function startRound(playerSelection, checkWinner) {
     console.log("CURRENT SCORE: ");
     console.log("Player Score: " + playerScore);
     console.log("Computer Score: " + computerScore);
+
+
 
     //check to see if any player has reached 5 points
     if (playerScore >= 5 || computerScore >= 5) {
