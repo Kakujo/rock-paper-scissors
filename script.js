@@ -3,18 +3,23 @@ let computerScore = 0;
 let playCount = 0;
 let victor = "";
 
+let allButtons = document.querySelector(".buttons");
+let playerScoreDisplay = document.querySelector(".playerScore");
+let computerScoreDisplay = document.querySelector(".computerScore");
+let victorDisplay = document.querySelector(".victor");
+
 let rockButton = document.querySelector("#rock");
 let paperButton = document.querySelector("#paper");
 let scissorsButton = document.querySelector("#scissors");
 
 rockButton.addEventListener("click", () => {
-    startRound("rock")
+    startRound("rock");
 });
 paperButton.addEventListener("click", () => {
-    startRound("paper")
+    startRound("paper");
 });
 scissorsButton.addEventListener("click", () => {
-    startRound("scissors")
+    startRound("scissors");
 });
 
 function getComputerChoice() {
@@ -56,6 +61,7 @@ function checkHands(playerSelection, computerSelection) {
 }
 
 function startRound(playerSelection) {
+    console.log("startRound event value: " + playerSelection);
     let computerSelection = getComputerChoice();
     const roundResult = checkHands(playerSelection, computerSelection);
 
@@ -111,20 +117,28 @@ function startRound(playerSelection) {
     console.log("Player Score: " + playerScore);
     console.log("Computer Score: " + computerScore);
 
+    updateScore();
+    checkWinner();
+    
+}
 
-
-    //check to see if any player has reached 5 points
-    if (playerScore >= 5 || computerScore >= 5) {
-        checkWinner();
-    }
+function updateScore() {
+    //update score display
+    playerScoreDisplay.textContent = "Player Score: " + playerScore;
+    computerScoreDisplay.textContent = "Computer Score: " + computerScore;
 }
 
 //determine winner
 function checkWinner() {
-    if (playerScore > computerScore) {
-        victor = "Player";
-    } else {
-        victor = "Computer";
+    //check to see if any player has reached 5 points
+    if (playerScore >= 5 || computerScore >= 5) {
+        if (playerScore > computerScore) {
+            victor = "Player";
+        } else {
+            victor = "Computer";
+        }
+        victorDisplay.textContent = "Alright, " + playCount + " rounds later: " + victor + " wins!";
+        allButtons.style.display = "none";
+
     }
-    alert("Alright, " + playCount + " rounds later: " + victor + " wins!");
 }
