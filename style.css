@@ -1,0 +1,32 @@
+html  {
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+body, #hero, .fists, .players {
+    display: flex;
+}
+
+body, #hero {
+    flex-direction: column;
+    align-items: center;
+}
+
+.players {
+    gap: 30px;
+}
+
+.players h3 {
+    justify-content: space-between;
+}
+
+.fists {
+    font-size: 100px;
+}
+
+.computerFist {
+    transform: scale(-1, 1);
+}
+
+.victor {
+    font-weight: bold;
+}
