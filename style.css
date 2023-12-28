@@ -2,7 +2,7 @@ html  {
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
 
-body, #hero, .fists, .players {
+body, #hero, .fists, .players, .score {
     display: flex;
 }
 
@@ -11,7 +11,7 @@ body, #hero {
     align-items: center;
 }
 
-.players {
+.players, .score {
     gap: 30px;
 }
 

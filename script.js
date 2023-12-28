@@ -142,6 +142,11 @@ function startRound(playerSelection) {
                 break;
         }
         playCount += 1;
+        setTimeout(() => {
+            playerFist.textContent = "🤜";
+            computerFist.textContent = "🤜";}
+            , "1500"
+        );
     } else {
         alert("That's not one of the selections! Try again.");
     }
